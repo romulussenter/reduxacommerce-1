@@ -1,7 +1,8 @@
 
 
+const initialState = '';
 
-const reducer = (state={}, action) => {
+const reducer = (state=initialState, action) => {
     console.log('search stuffs');
     return state;
 }
