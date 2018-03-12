@@ -36,19 +36,16 @@ const reducer = (state=initialState, action) => {
             };
         }
         case types.REMOVE_ITEM:{
-            const position = action.payload.value;
-            const selectedItem = state[position];
-            const before = state.slice(0, position);
-            const after = state.slice(position + 1);
+            const id = action.payload.value;
+            const selectedItem = state[id];
             const newProduct = {
                 ...selectedItem,
                 count: selectedItem.count === 0 ? 0 : selectedItem.count - 1
             }
-            return [
-                ...before,
-                newProduct,
-                ...after
-            ];
+            return { 
+                ...state,
+                [id]: newProduct,
+            };
         }
         default:
             return state;
