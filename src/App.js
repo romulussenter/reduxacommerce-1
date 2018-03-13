@@ -8,11 +8,17 @@ import CartButton from './CartButton';
 
 class App extends Component {
   render() {
+    const cartListStyles = {display: this.props.cart === false ? 'none' : 'block'};
     return (
       <div>
         <CartButton />
         <SearchBar />
         <ProductList searchTerm={this.props.search} products={this.props.products}/>
+        <div style={cartListStyles}>
+          <h1>
+            CartList
+          </h1>
+        </div>
       </div>       
     );
   }
